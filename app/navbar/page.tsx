@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import contactImg from "../assets/contact.png";
 import menu from "../assets/menu.png";
 import React, { useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -14,49 +14,34 @@ export default function Navbar() {
       <Image src={logo} alt="logo" className="object-cover h-12 w-16" />
       
       <div className="hidden md:flex space-x-4">
-        <ScrollLink
-        to="intro"
-        smooth={true}
-        duration={500}
-        offset={-100}
+        <Link
+        href="#intro"
          className="text-white cursor-pointer hover:text-yellow-400 hover:border-b-2 border-yellow-400">
           Home
-        </ScrollLink>
-        <ScrollLink
-        to="skills"
-        smooth={true}
-        duration={500}
-        offset={-100}
+        </Link>
+        <Link
+        href="#skills"
          className="text-white cursor-pointer hover:text-yellow-400 hover:border-b-2 border-yellow-400">
           About
-        </ScrollLink>
-        <ScrollLink 
-        to="works"
-        smooth={true}
-        duration={500}
-        offset={-100}
+        </Link>
+        <Link 
+        href="#works"
          className="text-white cursor-pointer hover:text-yellow-400 hover:border-b-2 border-yellow-400">
           Portfolio
-        </ScrollLink>
-        <ScrollLink 
-        to="contact"
-        smooth={true}
-        duration={500}
-        offset={-450}
+        </Link>
+        <Link 
+        href="#contact"
         className="text-white cursor-pointer hover:text-yellow-400 hover:border-b-2 border-yellow-400">
           Clients
-        </ScrollLink>
+        </Link>
       </div>
 
-      <ScrollLink
-      to="contact"
-      smooth={true}
-      duration={500}
-      offset={-100}
+      <Link
+      href="#contact"
       className="hidden md:flex items-center bg-white text-black px-4 py-1 rounded-full cursor-pointer">
         <Image src={contactImg} alt="" className="object-contain h-4 w-4 mr-2" />
         Contact Me
-      </ScrollLink>
+      </Link>
 
       <Image
         src={menu}
@@ -67,40 +52,28 @@ export default function Navbar() {
 
       {showMenu && (
         <div className="absolute top-16 right-8 z-20 flex flex-col p-2 bg-gray-800 rounded-lg shadow-lg min-w-[15rem]">
-          <ScrollLink
-          to="intro"
-          smooth={true}
-          duration={500}
-          offset={-100}
+          <Link
+          href="#intro"
            className="text-white py-2 px-8 cursor-pointer hover:bg-gray-700" onClick={() => setShowMenu(false)}>
             Home
-          </ScrollLink>
-          <ScrollLink
+          </Link>
+          <Link
           
-          to="skills"
-          smooth={true}
-          duration={500}
-          offset={-100}
+          href="#skills"
           className="text-white py-2 px-8 cursor-pointer hover:bg-gray-700" onClick={() => setShowMenu(false)}>
             About
-          </ScrollLink>
-          <ScrollLink
+          </Link>
+          <Link
           
-          to="works"
-          smooth={true}
-          duration={500}
-          offset={-100}
+          href="#works"
           className="text-white py-2 px-8 cursor-pointer hover:bg-gray-700" onClick={() => setShowMenu(false)}>
             Portfolio
-          </ScrollLink>
-          <ScrollLink
-          to="contact"
-          smooth={true}
-          duration={500}
-          offset={-450}
+          </Link>
+          <Link
+          href="#contact"
           className="text-white py-2 px-8 cursor-pointer hover:bg-gray-700" onClick={() => setShowMenu(false)}>
             Clients
-          </ScrollLink>
+          </Link>
         </div>
       )}
     </nav>
